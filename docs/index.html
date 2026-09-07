@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://upload.wikimedia.org" />
   <link rel="preconnect" href="https://commons.wikimedia.org" />
   <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ5HfTnD2xK8Llf8Wg3qVohU9Hn8kMw=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
     :root {
       --forest: #123a34;
@@ -29,7 +29,7 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 86px; max-width: 100%; overflow-x: clip; }
     body { margin: 0; max-width: 100%; overflow-x: clip; background: var(--cream); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; font-size: 16px; line-height: 1.75; }
-    img { display: block; width: 100%; max-width: 100%; }
+    img { display: block; }
     a { color: inherit; }
     button, summary, a { -webkit-tap-highlight-color: transparent; }
     .shell { width: var(--shell); margin-inline: auto; }
@@ -113,13 +113,20 @@
     .spot-title p { margin: 0; font-size: .82rem; color: rgba(255,255,255,.62); }
     .spot-toggle { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; font-size: 1.1rem; transition: transform .2s ease, background .2s ease; }
     .spot[open] .spot-toggle { transform: rotate(45deg); background: var(--coral); border-color: var(--coral); }
-    .spot-detail { padding: 0 28px 26px 94px; }
-    .spot-detail p { margin: 0; font-size: .88rem; color: rgba(255,255,255,.82); }
+    .spot-detail { padding: 0 28px 30px 94px; }
+    .spot-detail > p { margin: 0; font-size: .92rem; color: rgba(255,255,255,.86); }
+    .spot-facts { display: grid; gap: 9px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .spot-facts li { display: grid; grid-template-columns: 78px 1fr; gap: 12px; padding-top:9px; border-top: 1px solid rgba(255,255,255,.14); font-size: .82rem; color: rgba(255,255,255,.75); }
+    .spot-facts b { color: #fff; }
+    .spot-links, .stay-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .spot-link { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 8px 13px; border: 1px solid rgba(246,196,143,.65); border-radius: 999px; color: #ffe0b9; font-size: .78rem; font-weight: 800; line-height: 1.35; text-decoration: none; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+    .spot-link:hover, .spot-link:focus-visible { border-color: #f6c48f; background: #f6c48f; color: var(--forest-deep); }
     .map-link { display: inline-flex; align-items: center; margin-top: 14px; color: #f6c48f; font-size: .8rem; font-weight: 800; text-underline-offset: 4px; }
 
     .map-section { background: #e5eee8; }
     .map-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .45fr); gap: 20px; align-items: stretch; }
     .map-frame { width: 100%; height: 520px; min-width: 0; overflow: hidden; border: 1px solid rgba(18,58,52,.18); border-radius: var(--radius); background: #dbe6df; box-shadow: var(--shadow); }
+    #trip-map img { width: auto; max-width: none; }
     .map-side { display: grid; gap: 12px; }
     .route-day { padding: 23px; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); }
     .route-day small { font-size: .68rem; font-weight: 800; letter-spacing: .14em; color: var(--coral); }
@@ -141,7 +148,8 @@
     .stay-facts div { padding: 13px 15px; border-radius: 12px; background: #f1ede3; }
     .stay-facts small { display: block; font-size: .68rem; color: var(--muted); }
     .stay-facts b { font-size: .88rem; }
-    .stay-body .map-link { color: var(--coral); }
+    .stay-body .spot-link { border-color: rgba(232,97,67,.45); color: #b9412b; }
+    .stay-body .spot-link:hover, .stay-body .spot-link:focus-visible { border-color: var(--coral); background: var(--coral); color: #fff; }
 
     .prepare-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 18px; }
     .packing-card, .cost-card { padding: clamp(26px, 4vw, 40px); }
@@ -205,6 +213,8 @@
       .spot:nth-child(odd) { border-right: 0; }
       .spot summary { grid-template-columns: 38px 1fr auto; gap: 12px; padding: 22px 14px; }
       .spot-detail { padding: 0 16px 24px 64px; }
+      .spot-facts li { grid-template-columns: 1fr; gap: 2px; }
+      .spot-link { width: 100%; }
       .map-frame { height: 410px; }
       .map-side { grid-template-columns: 1fr; }
       .map-tip { grid-column: auto; }
@@ -240,25 +250,25 @@
     </section>
 
     <section class="highlights" id="highlights"><div class="shell">
-      <div class="section-head"><p class="section-label">02 / HIGHLIGHTS</p><h2>この旅の見どころ</h2></div><p class="section-note">森、海、石畳。1泊2日の中で空気が大きく変わる3つの章。下のスポットを開くと、当日の楽しみ方とGoogleマップを確認できます。</p>
+      <div class="section-head"><p class="section-label">02 / HIGHLIGHTS</p><h2>この旅の見どころ</h2></div><p class="section-note">森、海、石畳。1泊2日の中で空気が大きく変わる3つの章。01〜06を開くと、見どころ・今回の回り方・所要時間・公式WEB・Googleマップをまとめて確認できます。</p>
       <div class="story-grid">
         <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%87%E6%B2%BB%E6%A9%8B%20%2851435412437%29.jpg?width=1280" alt="伊勢神宮内宮の宇治橋" loading="lazy" /><div class="story-content"><small>CHAPTER 01 · MORNING</small><h3>森へ入る、伊勢の朝</h3><p>宇治橋を渡り、五十鈴川のそばを歩いて内宮へ。参拝のあとは門前町で伊勢らしい味を。</p><span class="story-time">8:00頃 — 10:40</span></div></article>
         <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8%20Toba%20Aquarium%20%2854790849678%29.jpg?width=1280" alt="鳥羽水族館" loading="lazy" /><div class="story-content"><small>CHAPTER 02 · AFTERNOON</small><h3>海の生きものに会う午後</h3><p>3時間をたっぷり確保。ショー時刻を先に見て、会いたい生きものから自由にめぐる。</p><span class="story-time">11:15 — 14:15</span></div></article>
         <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seigantoji05s1920.jpg?width=1280" alt="那智山青岸渡寺と那智の滝" loading="lazy" /><div class="story-content"><small>CHAPTER 03 · DAY TWO</small><h3>石畳の先、那智山へ</h3><p>大門坂の杉並木を歩き、熊野那智大社・青岸渡寺、那智の滝へ。熊野らしい一日の締めくくり。</p><span class="story-time">9:15 — 12:30頃</span></div></article>
       </div>
       <div class="spot-list">
-        <details class="spot"><summary><span class="spot-number">01</span><span class="spot-title"><h3>伊勢神宮・内宮</h3><p>宇治橋、五十鈴川、森の参道</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>朝の澄んだ空気の中、宇治橋から正宮までをゆっくり往復。静かな参拝から旅を始めます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%20%E5%86%85%E5%AE%AE" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
-        <details class="spot"><summary><span class="spot-number">02</span><span class="spot-title"><h3>おかげ横丁</h3><p>伊勢うどん、赤福、門前町歩き</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>昼食は10:00〜10:40。伊勢うどんを軸に、気になる甘味やおみやげも時間を見ながら楽しみます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
-        <details class="spot"><summary><span class="spot-number">03</span><span class="spot-title"><h3>鳥羽水族館</h3><p>ジュゴン、ラッコ、スナドリネコ</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>入館したら最初にショー時刻を確認。見学3時間の中で、会いたい生きものを優先して回ります。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
-        <details class="spot"><summary><span class="spot-number">04</span><span class="spot-title"><h3>熊野古道・大門坂</h3><p>夫婦杉と苔むした石畳</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>大門坂駐車場から、杉並木と石畳の参詣道へ。滑りにくい靴と水分を用意して歩きます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%20%E9%A7%90%E8%BB%8A%E5%A0%B4" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
-        <details class="spot"><summary><span class="spot-number">05</span><span class="spot-title"><h3>熊野那智大社・青岸渡寺</h3><p>朱塗りの社殿と那智山の眺め</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>大門坂を上った先で参拝。青岸渡寺から三重塔と那智の滝が重なる景色も楽しみます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
-        <details class="spot"><summary><span class="spot-number">06</span><span class="spot-title"><h3>那智の滝</h3><p>落差133m、熊野の御神体</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>飛瀧神社の御神体でもある大瀑布。滝の近くまで進み、旅の余韻を残して車へ戻ります。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">01</span><span class="spot-title"><h3>伊勢神宮・内宮</h3><p>宇治橋、五十鈴川、森の参道</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>正式名は皇大神宮。宇治橋を渡ると玉砂利の参道と深い森が続き、五十鈴川のほとりに天照大御神を祀る正宮があります。早朝の静けさの中で、旅の始まりらしい清々しい時間を過ごせます。</p><ul class="spot-facts"><li><b>見どころ</b><span>宇治橋、五十鈴川御手洗場、正宮へ続く参道</span></li><li><b>今回の回り方</b><span>8:00頃から宇治橋〜正宮を中心に参拝し、おはらい町側へ戻る</span></li><li><b>目安・注意</b><span>約60〜75分。参道は玉砂利なので歩きやすい靴がおすすめ</span></li></ul><div class="spot-links"><a class="spot-link" href="https://www.isejingu.or.jp/about/naiku/" target="_blank" rel="noopener">内宮 公式WEB ↗</a><a class="spot-link" href="https://www.isejingu.or.jp/visit/" target="_blank" rel="noopener">参拝案内 ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%20%E5%86%85%E5%AE%AE" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></details>
+        <details class="spot"><summary><span class="spot-number">02</span><span class="spot-title"><h3>おかげ横丁</h3><p>伊勢うどん、赤福、門前町歩き</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>内宮の宇治橋から徒歩約5分、おはらい町の中ほどに広がる横丁です。伊勢らしい木造の町並みに、郷土料理、甘味、工芸や土産の店が集まり、短い滞在でも食と町歩きを一緒に楽しめます。</p><ul class="spot-facts"><li><b>楽しみ</b><span>伊勢うどんを中心に、赤福などの甘味やおみやげ探し</span></li><li><b>今回の回り方</b><span>9:15から散策、10:00〜10:40に早めの昼食を済ませる</span></li><li><b>目安・注意</b><span>鳥羽への出発を優先。混雑時は食べ歩きを絞って時間を確保</span></li></ul><div class="spot-links"><a class="spot-link" href="https://okageyokocho.com/main/" target="_blank" rel="noopener">おかげ横丁 公式WEB ↗</a><a class="spot-link" href="https://okageyokocho.com/main/picture-map/" target="_blank" rel="noopener">横丁の絵地図 ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></details>
+        <details class="spot"><summary><span class="spot-number">03</span><span class="spot-title"><h3>鳥羽水族館</h3><p>ジュゴン、ラッコ、スナドリネコ</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>約1,200種を飼育し、12のテーマゾーンを順路なしで自由に回れる大型水族館です。日本で唯一飼育されているジュゴンに加え、ラッコやセイウチ、ユニークな生きものを集めた展示が大きな魅力です。</p><ul class="spot-facts"><li><b>優先候補</b><span>ジュゴン、ラッコ、スナドリネコ、当日のショー・お食事タイム</span></li><li><b>今回の回り方</b><span>11:15入館後にイベント時刻を確認し、14:15までの3時間で優先順に巡る</span></li><li><b>目安・注意</b><span>ラッコは観覧列の案内に従う。退館時刻を守り熊野市への移動時間を確保</span></li></ul><div class="spot-links"><a class="spot-link" href="https://aquarium.co.jp/kannai/" target="_blank" rel="noopener">館内案内・見どころ ↗</a><a class="spot-link" href="https://aquarium.co.jp/eigyo/" target="_blank" rel="noopener">営業時間・料金 ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></details>
+        <details class="spot"><summary><span class="spot-number">04</span><span class="spot-title"><h3>熊野古道・大門坂</h3><p>夫婦杉と苔むした石畳</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>那智山へ続く旧参道で、苔むした石畳と樹齢800年を超す老杉が熊野古道らしい景観を残しています。振ヶ瀬橋、夫婦杉、多富気王子をたどりながら、祈りの道の空気を味わえる人気区間です。</p><ul class="spot-facts"><li><b>見どころ</b><span>夫婦杉、石畳、杉木立、多富気王子。写真は夫婦杉付近が狙い目</span></li><li><b>今回の回り方</b><span>無料の大門坂駐車場に停め、9:15頃から那智山へ上る</span></li><li><b>目安・注意</b><span>大門坂約270段＋大社への参道約470段。雨天時は石が滑りやすい</span></li></ul><div class="spot-links"><a class="spot-link" href="https://www.wakayama-kanko.or.jp/courses/detail_34.html" target="_blank" rel="noopener">3時間モデルコース ↗</a><a class="spot-link" href="https://www.pref.wakayama.lg.jp/prefg/081300/d00214978.html" target="_blank" rel="noopener">和歌山県の案内 ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%20%E9%A7%90%E8%BB%8A%E5%A0%B4" target="_blank" rel="noopener">駐車場の地図 ↗</a></div></div></details>
+        <details class="spot"><summary><span class="spot-number">05</span><span class="spot-title"><h3>熊野那智大社・青岸渡寺</h3><p>朱塗りの社殿と那智山の眺め</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>熊野三山の一社である熊野那智大社と、西国三十三所第一番札所の青岸渡寺が隣り合う、神仏習合の歴史を感じる場所です。大門坂を上った達成感の先に、朱塗りの社殿と三重塔、那智の滝を望む景色が待っています。</p><ul class="spot-facts"><li><b>見どころ</b><span>熊野那智大社の社殿、青岸渡寺本堂、三重塔と那智の滝の眺め</span></li><li><b>今回の回り方</b><span>10:00頃に到着し、大社から青岸渡寺へ続けて参拝する</span></li><li><b>目安・注意</b><span>参拝と眺望で約60分。石段後なので境内で休憩をはさむ</span></li></ul><div class="spot-links"><a class="spot-link" href="https://kumanonachitaisha.or.jp/" target="_blank" rel="noopener">熊野那智大社 公式WEB ↗</a><a class="spot-link" href="https://seigantoji.or.jp/" target="_blank" rel="noopener">青岸渡寺 公式WEB ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></details>
+        <details class="spot"><summary><span class="spot-number">06</span><span class="spot-title"><h3>那智の滝</h3><p>落差133m、熊野の御神体</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>那智御瀧そのものを御神体として祀る飛瀧神社の聖域です。落差133mの水が深い森の岩壁を一気に落ちる姿は、熊野の自然信仰を体感できる旅のクライマックスです。</p><ul class="spot-facts"><li><b>見どころ</b><span>一の滝を正面から望む景色と、水音・飛沫まで感じる迫力</span></li><li><b>今回の回り方</b><span>青岸渡寺から下り、11:30頃に見学。滝前バス停から車へ戻る</span></li><li><b>目安・注意</b><span>見学約30分。大門坂駐車場へ戻るバス時刻は前日に再確認</span></li></ul><div class="spot-links"><a class="spot-link" href="https://kumanonachitaisha.or.jp/pavilion/waterfall/" target="_blank" rel="noopener">飛瀧神社・那智御瀧 ↗</a><a class="spot-link" href="https://www.wakayama-kanko.or.jp/courses/detail_34.html" target="_blank" rel="noopener">那智山モデルコース ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></details>
       </div>
     </div></section>
 
     <section class="section map-section" id="route"><div class="shell"><div class="section-head"><p class="section-label">03 / ROUTE MAP</p><h2>移動をひと目で</h2></div><p class="section-note">1日目は東へ、2日目は熊野から那智山を経て大阪へ。地図上のピンを押すと地点名を確認できます。</p><div class="map-layout"><div class="map-frame" id="trip-map" aria-label="大阪・伊勢・鳥羽・熊野・那智山の概略ルート地図"></div><aside class="map-side"><div class="route-day"><small>DAY 1 · CORAL LINE</small><h3>大阪 → 伊勢 → 鳥羽 → 熊野市</h3><p>朝の参拝と水族館を楽しみ、夕食に間に合うよう熊野市へ。</p></div><div class="route-day"><small>DAY 2 · GREEN LINE</small><h3>熊野市 → 那智山 → 大阪</h3><p>大門坂から那智の滝をめぐり、車を回収して大阪へ戻ります。</p></div><div class="map-tip">※ 地図の線は全体像をつかむための概略です。当日の走行経路はカーナビで確認してください。</div></aside></div></div></section>
 
-    <section class="stay shell" id="stay"><div class="section-head"><p class="section-label">04 / STAY</p><h2>熊野の夜</h2></div><article class="stay-card"><div class="stay-visual"><span class="stay-eyebrow">STAY · NIGHT 01</span><h2>紀南荘</h2><p>熊野市で、旅の前半をほどく。</p></div><div class="stay-body"><h3>夕食と朝食付きの和室</h3><p>長距離移動を終えたら、家庭的な料理と畳の部屋でひと休み。翌朝の大門坂歩きに備えます。</p><div class="stay-facts"><div><small>CHECK IN</small><b>9/21 18:00</b></div><div><small>CHECK OUT</small><b>9/22 朝</b></div><div><small>ROOM</small><b>禁煙和室10畳</b></div><div><small>PAYMENT</small><b>現地払い・現金</b></div></div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%B4%80%E5%8D%97%E8%8D%98%20%E4%B8%89%E9%87%8D%E7%9C%8C%E7%86%8A%E9%87%8E%E5%B8%82" target="_blank" rel="noopener">紀南荘をGoogleマップで見る ↗</a></div></article></section>
+    <section class="stay shell" id="stay"><div class="section-head"><p class="section-label">04 / STAY</p><h2>熊野の夜</h2></div><article class="stay-card"><div class="stay-visual"><span class="stay-eyebrow">STAY · NIGHT 01</span><h2>紀南荘</h2><p>熊野市で、旅の前半をほどく。</p></div><div class="stay-body"><h3>夕食と朝食付きの和室</h3><p>熊野市駅から徒歩圏の昔ながらの旅館。長距離移動を終えたら、家庭的な料理と畳の部屋でひと休みし、翌朝の大門坂歩きに備えます。</p><div class="stay-facts"><div><small>CHECK IN</small><b>9/21 18:00</b></div><div><small>CHECK OUT</small><b>9/22 朝</b></div><div><small>ROOM</small><b>禁煙和室10畳</b></div><div><small>PAYMENT</small><b>現地払い・現金</b></div></div><div class="stay-links"><a class="spot-link" href="https://www.kankomie.or.jp/spot/848" target="_blank" rel="noopener">紀南荘のWEB情報 ↗</a><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%E7%B4%80%E5%8D%97%E8%8D%98%20%E4%B8%89%E9%87%8D%E7%9C%8C%E7%86%8A%E9%87%8E%E5%B8%82" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></article></section>
 
     <section class="section shell" id="prepare"><div class="section-head"><p class="section-label">05 / PREPARE</p><h2>準備と費用</h2></div><div class="prepare-grid"><article class="packing-card"><p class="card-label">PACKING LIST</p><h3>忘れずに持っていくもの</h3><ul class="checklist"><li>運転免許証（運転する人全員）</li><li>宿泊代の現金</li><li>スマートフォン・充電器</li><li>モバイルバッテリー</li><li>滑りにくい歩きやすい靴</li><li>雨具・タオル</li><li>虫よけ・常備薬</li><li>着替え・洗面用品</li></ul></article><article class="cost-card"><p class="card-label">BUDGET · FOR TWO</p><h3>費用の目安</h3><strong class="cost-total">約69,000〜77,000円</strong><p class="cost-per">1人あたり 約34,500〜38,500円</p><ul class="cost-list"><li><span>宿泊・夕朝食付き（確定）</span><b>19,000円</b></li><li><span>レンタカー（確定）</span><b>19,736円</b></li><li><span>鳥羽水族館</span><b>5,600円</b></li><li><span>高速代</span><b>11,000〜14,000円</b></li><li><span>ガソリン代</span><b>6,000〜8,000円</b></li><li><span>昼食・軽食・飲み物</span><b>7,000〜9,000円</b></li><li><span>駐車場など</span><b>1,000〜2,000円</b></li></ul><p class="cost-note">宿の夕食・朝食を含む想定。9/22の大阪到着後の夕食は含みません。</p></article></div></section>
   </main>
@@ -273,6 +283,9 @@
     L.polyline([dayOne[3].coords, ...dayTwo.map(place => place.coords)], { color: '#27594d', weight: 5, opacity: .88, dashArray: '10 8' }).addTo(map);
     [...dayOne, ...dayTwo.slice(0, -1)].forEach((place, index) => L.circleMarker(place.coords, { radius: 9, color: '#fff', weight: 3, fillColor: index < 4 ? '#e86143' : '#27594d', fillOpacity: 1 }).addTo(map).bindPopup('<strong>' + place.name + '</strong>'));
     map.fitBounds(L.latLngBounds([...dayOne, ...dayTwo].map(place => place.coords)).pad(.14));
+    const refreshMap = () => map.invalidateSize({ pan: false });
+    window.addEventListener('load', refreshMap, { once: true });
+    if ('ResizeObserver' in window) new ResizeObserver(refreshMap).observe(document.getElementById('trip-map'));
   </script>
 </body>
 </html>
