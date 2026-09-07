@@ -3,45 +3,276 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>伊勢・鳥羽・熊野古道 しおり</title>
-  <meta name="description" content="2026年9月21日〜22日の伊勢・鳥羽・熊野古道旅行の共有しおり" />
+  <meta name="description" content="2026年9月21日〜22日、伊勢・鳥羽・熊野古道をめぐる1泊2日の旅行しおり" />
+  <meta name="theme-color" content="#123a34" />
+  <title>伊勢・鳥羽・熊野古道｜旅のしおり</title>
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="preconnect" href="https://unpkg.com" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ5HfTnD2xK8Llf8Wg3qVohU9Hn8kMw=" crossorigin="" />
   <style>
-    :root{--ink:#18362d;--paper:#f7f5ef;--coral:#e95c3d;--mist:#dfeae1}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7}header{height:68px;padding:0 max(20px,7vw);display:flex;justify-content:space-between;align-items:center}header a{color:inherit;text-decoration:none}.brand{font:500 1.2rem Georgia,serif}.brand small{display:block;font:700 .62rem -apple-system,sans-serif;letter-spacing:.12em}.nav{display:flex;gap:22px;font-size:.82rem}.hero{min-height:480px;height:68vh;position:relative;color:white;overflow:hidden;background:#17372d}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,31,24,.82),rgba(10,31,24,.2)),url("https://upload.wikimedia.org/wikipedia/commons/8/85/Kumano_Kodo_pilgrimage_route_Daimon-zaka_World_heritage_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E5%A4%A7%E9%96%80%E5%9D%8203.JPG") center/cover}.hero div{position:relative;top:53%;transform:translateY(-50%);max-width:1080px;margin:auto;padding:0 7vw}.eyebrow,.label{font-size:.72rem;font-weight:700;letter-spacing:.14em}.hero h1{font:500 clamp(2.6rem,7vw,5.5rem)/1.1 Georgia,"Hiragino Mincho ProN",serif;margin:.35rem 0 1rem}.hero p{margin:0;font-size:1.05rem}.facts{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);background:var(--coral);color:#fff}.facts div{padding:17px 24px;border-right:1px solid #ffffff55;font-size:.9rem}.facts div:last-child{border:0}main{max-width:1080px;margin:auto;padding:90px 7vw}section{margin-bottom:88px}.heading{border-bottom:1px solid #bcc9bd;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px}.label{color:#698175}.heading h2{font:500 clamp(2rem,4vw,3.2rem) Georgia,"Hiragino Mincho ProN",serif;margin:0 0 12px}.days{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#fff;padding:28px;border:1px solid #e2dfd6}.card h3{font:500 1.25rem Georgia,"Hiragino Mincho ProN",serif;margin:8px 0 20px}.timeline{margin:0;padding:0;list-style:none}.timeline li{display:grid;grid-template-columns:104px 1fr;border-top:1px solid #edf0ea;padding:10px 0;font-size:.9rem}.timeline time{font-weight:700;color:#416552}.notice{background:var(--mist);padding:20px 22px;margin-top:20px;font-size:.9rem}.spots{background:var(--ink);color:#fff;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:84px max(7vw,calc((100vw - 880px)/2))}.spots .heading{border-color:#ffffff44}.spots .label{color:#b8d0bb}.grid{display:grid;grid-template-columns:repeat(3,1fr)}.spot{border:1px solid #ffffff44;margin:-1px 0 0 -1px;padding:24px;min-height:196px}.spot b{font:500 1.2rem Georgia,serif;color:#eec6a8}.spot h3{font-size:1rem;margin:14px 0 7px}.spot p{font-size:.86rem;color:#d8e3dc;margin:0}.prepare{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.prepare .card{padding:30px}.check{list-style:none;padding:0;margin:0}.check li{padding:8px 0;font-size:.9rem}.check li:before{content:"✓";padding-right:9px;color:#60816e;font-weight:700}.cost{background:var(--coral)!important;color:#fff}.cost strong{display:block;font:2.6rem Georgia,serif;line-height:1.2;margin:10px 0}.cost p{font-size:.88rem}footer{padding:45px 20px;background:#122a23;color:white;text-align:center;font:1.1rem Georgia,"Hiragino Mincho ProN",serif}@media(max-width:680px){.nav{gap:12px;font-size:.75rem}.facts,.days,.prepare{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:1px solid #ffffff55}.grid{grid-template-columns:1fr 1fr}.spot{min-height:170px;padding:19px}main{padding-top:64px}.hero{height:62vh}.timeline li{grid-template-columns:94px 1fr}}
-    .feature:before{background:linear-gradient(0deg,rgba(4,19,14,.98),rgba(4,19,14,.5) 58%,rgba(4,19,14,.22))}.feature h3,.feature p,.feature .chapter,.feature .time{text-shadow:0 2px 12px #081b15}.spot-guide{border-right:0}.spot{margin:0}.spot summary{cursor:pointer;list-style:none}.spot summary::-webkit-details-marker{display:none}.spot .expand{display:block;margin-top:13px;font-size:.74rem;color:#f0cba7;font-weight:700}.spot[open] .expand{display:none}.spot-detail{margin-top:16px;padding-top:14px;border-top:1px solid #ffffff44}.spot-detail p{color:#eef4ef}.map-mini{display:inline-block;margin-top:12px;color:#fff;font-size:.78rem;font-weight:700}.route-map{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:84px max(7vw,calc((100vw - 980px)/2));background:#dfeae1}.route-map .heading{margin-bottom:17px}.route-note{max-width:640px;margin:0 0 25px;font-size:.92rem}.map-frame{height:480px;border:1px solid #b7c6b8;box-shadow:0 16px 38px #18362d22}.map-key{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:16px;font-size:.8rem}.map-key span:before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%;background:var(--coral)}.map-key span:nth-child(n+5):before{background:#416552}.cost strong{font-size:2.05rem}.cost-list{padding:0;margin:14px 0 0;list-style:none;font-size:.78rem}.cost-list li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-top:1px solid #ffffff55}.cost-note{font-size:.72rem!important;margin-top:12px!important}@media(max-width:780px){.feature-grid,.spot-guide{grid-template-columns:1fr}.feature{min-height:330px}.stay-card{grid-template-columns:1fr}.map-link{justify-self:start}.map-frame{height:370px}}
+    :root {
+      --forest: #123a34;
+      --forest-deep: #092923;
+      --pine: #27594d;
+      --cream: #f7f4ec;
+      --paper: #fffdf8;
+      --coral: #e86143;
+      --gold: #e6bb72;
+      --ink: #18332d;
+      --muted: #64756f;
+      --line: rgba(24, 51, 45, .14);
+      --shadow: 0 18px 50px rgba(18, 58, 52, .12);
+      --radius: 22px;
+      --shell: min(1120px, calc(100% - 48px));
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; max-width: 100%; overflow-x: clip; }
+    body { margin: 0; max-width: 100%; overflow-x: clip; background: var(--cream); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; font-size: 16px; line-height: 1.75; }
+    img { display: block; width: 100%; max-width: 100%; }
+    a { color: inherit; }
+    button, summary, a { -webkit-tap-highlight-color: transparent; }
+    .shell { width: var(--shell); margin-inline: auto; }
+
+    .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(247, 244, 236, .93); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+    .header-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { flex: 0 0 auto; text-decoration: none; line-height: 1.05; }
+    .brand small { display: block; margin-bottom: 5px; font-size: .68rem; font-weight: 800; letter-spacing: .16em; color: var(--coral); }
+    .brand strong { font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.25rem; font-weight: 500; }
+    .nav { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 30px); font-size: .85rem; font-weight: 700; white-space: nowrap; }
+    .nav a { text-decoration: none; color: #385a51; }
+    .nav a:hover, .nav a:focus-visible { color: var(--coral); }
+
+    .hero { position: relative; min-height: min(650px, calc(100vh - 72px)); color: #fff; background: var(--forest-deep); isolation: isolate; }
+    .hero-media { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(4, 27, 22, .91) 0%, rgba(4, 27, 22, .72) 43%, rgba(4, 27, 22, .28) 74%, rgba(4, 27, 22, .18) 100%); }
+    .hero-inner { min-height: min(650px, calc(100vh - 72px)); display: grid; align-content: center; padding-block: 72px; }
+    .kicker { margin: 0 0 18px; font-size: .76rem; font-weight: 800; letter-spacing: .17em; color: #ffe2bd; }
+    .hero h1 { max-width: 800px; margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(3rem, 6.8vw, 6.4rem); font-weight: 500; line-height: 1.03; letter-spacing: -.025em; text-shadow: 0 4px 24px rgba(0, 0, 0, .34); }
+    .hero-lead { max-width: 620px; margin: 24px 0 0; font-size: clamp(1rem, 1.7vw, 1.18rem); color: rgba(255, 255, 255, .9); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .hero-meta span { padding: 8px 13px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; background: rgba(5, 32, 26, .28); font-size: .82rem; font-weight: 700; backdrop-filter: blur(8px); }
+
+    .journey-bar { position: relative; z-index: 2; margin-top: -36px; }
+    .journey-grid { display: grid; grid-template-columns: repeat(5, 1fr); padding: 22px 26px; border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow); }
+    .journey-stop { position: relative; min-width: 0; padding: 0 14px; text-align: center; }
+    .journey-stop:not(:last-child)::after { content: ""; position: absolute; top: 10px; left: calc(50% + 15px); width: calc(100% - 30px); height: 2px; background: linear-gradient(90deg, var(--coral), var(--gold)); }
+    .journey-dot { position: relative; z-index: 1; display: block; width: 20px; height: 20px; margin: 0 auto 10px; border: 5px solid var(--paper); border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 2px var(--coral); }
+    .journey-stop:nth-child(n+4) .journey-dot { background: var(--pine); box-shadow: 0 0 0 2px var(--pine); }
+    .journey-stop b { display: block; overflow: hidden; font-size: .83rem; text-overflow: ellipsis; white-space: nowrap; }
+    .journey-stop small { display: block; margin-top: 2px; font-size: .7rem; color: var(--muted); }
+
+    .section { padding-block: 105px; }
+    .section-head { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: end; margin-bottom: 38px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .section-label { margin: 0; font-size: .72rem; font-weight: 800; letter-spacing: .16em; color: var(--coral); }
+    .section-head h2 { margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(2.1rem, 4vw, 3.7rem); font-weight: 500; line-height: 1.15; }
+    .section-note { max-width: 720px; margin: -18px 0 36px 168px; color: var(--muted); }
+
+    .prelude { display: grid; grid-template-columns: .82fr 2.18fr; gap: 18px; margin-bottom: 18px; }
+    .pickup, .day-card, .stay-card, .packing-card, .cost-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .pickup { display: grid; align-content: center; padding: 28px; background: var(--forest); color: #fff; }
+    .pickup span, .day-label, .stay-eyebrow { font-size: .7rem; font-weight: 800; letter-spacing: .15em; }
+    .pickup strong { margin-top: 7px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.45rem; font-weight: 500; }
+    .pickup p { margin: 8px 0 0; font-size: .88rem; color: rgba(255,255,255,.8); }
+    .route-summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 28px; border: 1px solid var(--line); border-radius: var(--radius); background: #e8efe9; }
+    .route-summary strong { font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.22rem; font-weight: 500; }
+    .route-summary span { font-size: .84rem; color: var(--muted); }
+    .days { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .day-card { overflow: hidden; }
+    .day-top { padding: 27px 30px 22px; background: linear-gradient(135deg, #fff 0%, #f3efe5 100%); border-bottom: 1px solid var(--line); }
+    .day-label { margin: 0 0 8px; color: var(--coral); }
+    .day-card h3 { margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.35rem; font-weight: 500; }
+    .timeline { margin: 0; padding: 12px 30px 24px; list-style: none; }
+    .timeline li { display: grid; grid-template-columns: 108px 1fr; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(24,51,45,.09); font-size: .9rem; }
+    .timeline li:last-child { border-bottom: 0; }
+    .timeline time { font-weight: 800; color: var(--pine); font-variant-numeric: tabular-nums; }
+    .timeline .key { font-weight: 800; color: var(--coral); }
+    .schedule-alert { margin-top: 18px; padding: 18px 22px; border-left: 4px solid var(--coral); border-radius: 0 12px 12px 0; background: #f1e4d9; font-size: .9rem; }
+
+    .highlights { padding-block: 105px; background: var(--forest-deep); color: #fff; }
+    .highlights .section-head { border-color: rgba(255,255,255,.19); }
+    .highlights .section-label { color: #f6c48f; }
+    .highlights .section-note { color: rgba(255,255,255,.67); }
+    .story-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .story-card { position: relative; min-width: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); background: #143d34; isolation: isolate; }
+    .story-card img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+    .story-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(3,22,18,.97) 0%, rgba(3,22,18,.55) 58%, rgba(3,22,18,.12) 100%); }
+    .story-content { position: absolute; inset: auto 0 0; padding: 28px; }
+    .story-content small { font-size: .68rem; font-weight: 800; letter-spacing: .16em; color: #f6c48f; }
+    .story-content h3 { margin: 9px 0 10px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(1.35rem, 2.3vw, 1.8rem); font-weight: 500; line-height: 1.35; }
+    .story-content p { margin: 0; font-size: .88rem; line-height: 1.75; color: rgba(255,255,255,.82); }
+    .story-time { display: inline-block; margin-top: 14px; font-size: .76rem; font-weight: 800; }
+
+    .spot-list { display: grid; grid-template-columns: 1fr 1fr; margin-top: 54px; border-top: 1px solid rgba(255,255,255,.24); }
+    .spot { min-width: 0; border-bottom: 1px solid rgba(255,255,255,.24); }
+    .spot:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.24); }
+    .spot summary { position: relative; display: grid; grid-template-columns: 48px 1fr auto; gap: 18px; align-items: center; min-height: 126px; padding: 24px 28px; cursor: pointer; list-style: none; }
+    .spot summary::-webkit-details-marker { display: none; }
+    .spot-number { font-family: Georgia, serif; font-size: 1.2rem; color: #f6c48f; }
+    .spot-title h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .spot-title p { margin: 0; font-size: .82rem; color: rgba(255,255,255,.62); }
+    .spot-toggle { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; font-size: 1.1rem; transition: transform .2s ease, background .2s ease; }
+    .spot[open] .spot-toggle { transform: rotate(45deg); background: var(--coral); border-color: var(--coral); }
+    .spot-detail { padding: 0 28px 26px 94px; }
+    .spot-detail p { margin: 0; font-size: .88rem; color: rgba(255,255,255,.82); }
+    .map-link { display: inline-flex; align-items: center; margin-top: 14px; color: #f6c48f; font-size: .8rem; font-weight: 800; text-underline-offset: 4px; }
+
+    .map-section { background: #e5eee8; }
+    .map-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .45fr); gap: 20px; align-items: stretch; }
+    .map-frame { width: 100%; height: 520px; min-width: 0; overflow: hidden; border: 1px solid rgba(18,58,52,.18); border-radius: var(--radius); background: #dbe6df; box-shadow: var(--shadow); }
+    .map-side { display: grid; gap: 12px; }
+    .route-day { padding: 23px; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); }
+    .route-day small { font-size: .68rem; font-weight: 800; letter-spacing: .14em; color: var(--coral); }
+    .route-day:nth-child(2) small { color: var(--pine); }
+    .route-day h3 { margin: 6px 0 8px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.12rem; font-weight: 500; }
+    .route-day p { margin: 0; font-size: .82rem; color: var(--muted); }
+    .map-tip { padding: 18px 20px; border-radius: 16px; background: rgba(18,58,52,.08); font-size: .78rem; color: #49645c; }
+
+    .stay { padding-block: 105px; }
+    .stay-card { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); overflow: hidden; }
+    .stay-visual { min-height: 380px; display: grid; align-content: end; padding: 36px; background: linear-gradient(145deg, rgba(9,41,35,.78), rgba(9,41,35,.98)), url("https://upload.wikimedia.org/wikipedia/commons/0/0d/Kumano_city_and_Shichirimihama_coast_seen_from_Onigajo.jpg") center / cover; color: #fff; }
+    .stay-eyebrow { color: #f6c48f; }
+    .stay-visual h2 { margin: 8px 0 4px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(2.3rem, 5vw, 4rem); font-weight: 500; }
+    .stay-visual p { margin: 0; color: rgba(255,255,255,.78); }
+    .stay-body { display: grid; align-content: center; padding: clamp(30px, 5vw, 58px); }
+    .stay-body h3 { margin: 0 0 14px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.55rem; font-weight: 500; }
+    .stay-body > p { margin: 0; color: var(--muted); }
+    .stay-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+    .stay-facts div { padding: 13px 15px; border-radius: 12px; background: #f1ede3; }
+    .stay-facts small { display: block; font-size: .68rem; color: var(--muted); }
+    .stay-facts b { font-size: .88rem; }
+    .stay-body .map-link { color: var(--coral); }
+
+    .prepare-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 18px; }
+    .packing-card, .cost-card { padding: clamp(26px, 4vw, 40px); }
+    .card-label { margin: 0 0 8px; font-size: .68rem; font-weight: 800; letter-spacing: .15em; color: var(--coral); }
+    .packing-card h3, .cost-card h3 { margin: 0 0 22px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.65rem; font-weight: 500; }
+    .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; margin: 0; padding: 0; list-style: none; }
+    .checklist li { position: relative; padding-left: 26px; font-size: .88rem; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--coral); font-weight: 900; }
+    .cost-card { background: var(--coral); color: #fff; }
+    .cost-card .card-label { color: #ffe2bd; }
+    .cost-total { display: block; margin-bottom: 4px; font-family: Georgia, serif; font-size: clamp(2.15rem, 4vw, 3.15rem); font-weight: 500; line-height: 1.1; }
+    .cost-per { margin: 0 0 22px; font-size: .85rem; color: rgba(255,255,255,.82); }
+    .cost-list { margin: 0; padding: 0; list-style: none; }
+    .cost-list li { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.3); font-size: .82rem; }
+    .cost-list b { white-space: nowrap; }
+    .cost-note { margin: 18px 0 0; font-size: .75rem; color: rgba(255,255,255,.75); }
+
+    footer { padding: 60px 24px; background: var(--forest-deep); color: #fff; text-align: center; }
+    footer p { margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.35rem; }
+    footer small { display: block; margin-top: 8px; color: rgba(255,255,255,.58); }
+
+    @media (max-width: 920px) {
+      :root { --shell: min(100% - 36px, 760px); }
+      .journey-grid { padding-inline: 12px; }
+      .journey-stop { padding-inline: 5px; }
+      .story-grid { grid-template-columns: 1fr 1fr; }
+      .story-card:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 8; }
+      .map-layout { grid-template-columns: 1fr; }
+      .map-side { grid-template-columns: 1fr 1fr; }
+      .map-tip { grid-column: 1 / -1; }
+      .prepare-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      :root { --shell: calc(100% - 28px); --radius: 18px; }
+      html { scroll-padding-top: 64px; }
+      .header-inner { min-height: 64px; }
+      .brand strong { font-size: 1.05rem; }
+      .brand small { font-size: .6rem; }
+      .nav { max-width: 62%; overflow-x: auto; gap: 16px; font-size: .75rem; scrollbar-width: none; }
+      .nav::-webkit-scrollbar { display: none; }
+      .hero, .hero-inner { min-height: 540px; }
+      .hero::after { background: linear-gradient(0deg, rgba(4,27,22,.94) 0%, rgba(4,27,22,.55) 62%, rgba(4,27,22,.2) 100%); }
+      .hero-inner { align-content: end; padding-block: 58px; }
+      .hero h1 { font-size: clamp(2.7rem, 13vw, 4rem); }
+      .hero-lead { font-size: .95rem; }
+      .journey-bar { margin-top: -20px; }
+      .journey-grid { grid-template-columns: repeat(5, 92px); overflow-x: auto; justify-content: start; padding: 18px 12px; scroll-snap-type: x proximity; }
+      .journey-stop { scroll-snap-align: start; }
+      .section, .highlights, .stay { padding-block: 76px; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; margin-bottom: 28px; }
+      .section-head h2 { font-size: 2.25rem; }
+      .section-note { margin: -12px 0 28px; font-size: .88rem; }
+      .prelude { grid-template-columns: 1fr; }
+      .route-summary { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .days { grid-template-columns: 1fr; }
+      .timeline { padding-inline: 20px; }
+      .timeline li { grid-template-columns: 92px 1fr; gap: 12px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-card, .story-card:first-child { grid-column: auto; aspect-ratio: 4 / 5; }
+      .spot-list { grid-template-columns: 1fr; }
+      .spot:nth-child(odd) { border-right: 0; }
+      .spot summary { grid-template-columns: 38px 1fr auto; gap: 12px; padding: 22px 14px; }
+      .spot-detail { padding: 0 16px 24px 64px; }
+      .map-frame { height: 410px; }
+      .map-side { grid-template-columns: 1fr; }
+      .map-tip { grid-column: auto; }
+      .stay-card { grid-template-columns: 1fr; }
+      .stay-visual { min-height: 310px; }
+      .stay-facts, .checklist { grid-template-columns: 1fr; }
+      .cost-list li { align-items: baseline; }
+    }
+    @media (max-width: 400px) {
+      .nav a:nth-child(3) { display: none; }
+      .hero h1 { font-size: 2.55rem; }
+      .hero-meta span { font-size: .74rem; }
+      .timeline li { grid-template-columns: 82px 1fr; font-size: .84rem; }
+      .story-content { padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <header><a class="brand" href="#top"><small>伊勢・鳥羽</small>熊野古道</a><nav class="nav"><a href="#schedule">行程</a><a href="#spots">見どころ</a><a href="#route">地図</a><a href="#prepare">準備</a></nav></header>
-  <section class="hero" id="top"><div><span class="eyebrow">2026.09.21 MON — 09.22 TUE</span><h1>森と海をめぐる<br>1泊2日の旅</h1><p>伊勢の朝、鳥羽の海、そして熊野古道へ。　たくと・かずこ</p></div></section>
-  <div class="facts"><div>大阪発着・レンタカー</div><div>宿泊：熊野市・紀南荘</div><div>9/21 18:00 チェックイン</div></div>
+  <header class="site-header"><div class="shell header-inner"><a class="brand" href="#top"><small>ISE · TOBA</small><strong>熊野古道</strong></a><nav class="nav" aria-label="ページ内メニュー"><a href="#schedule">行程</a><a href="#highlights">見どころ</a><a href="#route">地図</a><a href="#stay">宿</a><a href="#prepare">準備</a></nav></div></header>
   <main>
-    <section id="schedule"><div class="heading"><p class="label">01 / SCHEDULE</p><h2>旅の行程</h2></div><div class="days"><article class="card"><p class="label">DAY 1　9/21（月・祝）</p><h3>大阪 → 伊勢 → 鳥羽 → 熊野市</h3><ul class="timeline"><li><time>5:30</time>大阪を出発</li><li><time>8:00頃</time>伊勢神宮・内宮を参拝</li><li><time>9:15</time>おはらい町・おかげ横丁を散策</li><li><time>10:00〜10:40</time>おかげ横丁で昼食</li><li><time>11:15〜14:15</time>鳥羽水族館を見学</li><li><time>14:15</time>熊野市へ移動（途中で休憩1回）</li><li><time>18:00</time>紀南荘にチェックイン・夕食</li></ul></article><article class="card"><p class="label">DAY 2　9/22（火・祝）</p><h3>熊野市 → 那智山 → 大阪</h3><ul class="timeline"><li><time>8:00</time>紀南荘を出発</li><li><time>9:00頃</time>大門坂駐車場に到着</li><li><time>9:15</time>熊野古道・大門坂を歩き始める</li><li><time>10:00頃</time>熊野那智大社・青岸渡寺を参拝</li><li><time>11:30頃</time>那智の滝を見学</li><li><time>13:30頃</time>大阪へ出発（途中で休憩1回）</li><li><time>19:30</time>南森町でレンタカー返却</li></ul></article></div><div class="notice"><strong>1日目は時間に注意。</strong> 紀南荘は18:00チェックインです。鳥羽水族館を出た後は休憩を1回に絞り、遅れそうなら宿へ連絡します。</div></section>
-    <section class="spots" id="spots"><div class="heading"><p class="label">02 / HIGHLIGHTS</p><h2>この旅の見どころ</h2></div><p class="spot-intro">朝の森、海の生きもの、石畳の参詣道。気になるカードを開くと、当日の楽しみ方と地図へのリンクが見られます。</p><div class="feature-grid"><article class="feature"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%87%E6%B2%BB%E6%A9%8B%20%2851435412437%29.jpg?width=1280" alt="伊勢神宮内宮の宇治橋" loading="lazy"><span class="chapter">CHAPTER 01 / MORNING</span><h3>森へ入る、伊勢の朝</h3><p>宇治橋を渡り、五十鈴川のそばを歩いて内宮へ。静かな参拝のあとには、おかげ横丁で伊勢らしい昼食を。</p><span class="time">8:00頃 — 10:40</span></article><article class="feature"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8%20Toba%20Aquarium%20%2854790849678%29.jpg?width=1280" alt="鳥羽水族館" loading="lazy"><span class="chapter">CHAPTER 02 / AFTERNOON</span><h3>海の生きものに会う午後</h3><p>3時間をたっぷり確保。ジュゴン、ラッコ、スナドリネコなど、見たい生きものから回るのがおすすめです。</p><span class="time">11:15 — 14:15</span></article><article class="feature"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seigantoji05s1920.jpg?width=1280" alt="那智山青岸渡寺" loading="lazy"><span class="chapter">CHAPTER 03 / DAY TWO</span><h3>石畳の先、那智山へ</h3><p>大門坂の杉並木を歩き、熊野那智大社・青岸渡寺へ。那智の滝まで巡る、熊野らしい一日の締めくくり。</p><span class="time">9:15 — 11:30頃</span></article><article class="stay-card"><div><span class="chapter">STAY / NIGHT 01</span><h3>紀南荘</h3></div><p>熊野市で1泊。1日目の長距離移動を終えたら、夕食と休息で翌朝の大門坂歩きに備えます。チェックインは18:00です。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%B4%80%E5%8D%97%E8%8D%98%20%E4%B8%89%E9%87%8D%E7%9C%8C%E7%86%8A%E9%87%8E%E5%B8%82" target="_blank" rel="noopener">Google マップで見る ↗</a></article></div><div class="spot-guide"><details class="spot"><summary><b>01</b><h3>伊勢神宮・内宮</h3><p>五十鈴川と森の参道を歩く、旅の静かな始まり。</p><span class="tag">宇治橋 → 正宮</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>まずは宇治橋から正宮までをゆっくり往復。朝の空気を味わったら、おかげ横丁へそのまま歩いて向かえます。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%20%E5%86%85%E5%AE%AE" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details><details class="spot"><summary><b>02</b><h3>おかげ横丁</h3><p>伊勢うどんと赤福。門前町を歩きながら昼食を楽しむ。</p><span class="tag">食べ歩き・おみやげ</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>昼食は10:00〜10:40。伊勢うどんを軸に、赤福や気になるお店を少しだけ。水族館へ向けて時間を見ながら出発します。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details><details class="spot"><summary><b>03</b><h3>鳥羽水族館</h3><p>まずは当日のショー時刻と、会いたい生きものを確認。</p><span class="tag">ジュゴン・ラッコ</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>見学は3時間。入館後にショーの時間を確認してから、ジュゴン・ラッコ・スナドリネコを優先して回ると満足度が上がります。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details><details class="spot"><summary><b>04</b><h3>熊野古道・大門坂</h3><p>夫婦杉と石畳。歩くほどに山の空気が濃くなる参詣道。</p><span class="tag">歩きやすい靴で</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>大門坂駐車場を起点に、杉並木と石畳を歩きます。歩行用の靴と水分を準備して、那智山の参道らしい景観を楽しみます。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%20%E9%A7%90%E8%BB%8A%E5%A0%B4" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details><details class="spot"><summary><b>05</b><h3>熊野那智大社・青岸渡寺</h3><p>朱塗りの社殿と、神仏習合の歴史を感じる山の境内。</p><span class="tag">参拝・休憩</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>大門坂を上がった先の参拝地。熊野那智大社で参拝し、青岸渡寺から那智の滝を望む景色も味わいます。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details><details class="spot"><summary><b>06</b><h3>那智の滝</h3><p>落差133m。熊野の旅を締めくくる、迫力ある御神体。</p><span class="tag">飛瀧神社</span><span class="expand">詳細を見る ＋</span></summary><div class="spot-detail"><p>飛瀧神社の御神体でもある那智の滝へ。滝の近くまで進み、熊野の旅の余韻を残して大門坂駐車場へ戻ります。</p><a class="map-mini" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D" target="_blank" rel="noopener">Google マップを開く ↗</a></div></details></div></section>
-    <section class="route-map" id="route"><div class="heading"><p class="label">03 / ROUTE MAP</p><h2>移動をひと目で</h2></div><p class="route-note">大阪から伊勢・鳥羽を経て熊野市で宿泊。翌日は大門坂・那智山を巡り、大阪へ戻ります。ピンを押すと各地点の名前を確認できます。</p><div class="map-frame" id="trip-map" aria-label="伊勢・鳥羽・熊野古道の行程地図"></div><div class="map-key"><span>1日目：大阪 → 伊勢 → 鳥羽 → 熊野市</span><span>2日目：熊野市 → 那智山 → 大阪</span></div></section>
-    <section id="prepare"><div class="heading"><p class="label">04 / PREPARE</p><h2>持ち物と当日のこと</h2></div><div class="prepare"><article class="card"><h3>持ち物</h3><ul class="check"><li>運転免許証（運転する人全員）</li><li>現金（宿泊代は現地払い・カード利用不可）</li><li>スマートフォン、充電器、モバイルバッテリー</li><li>滑りにくい歩きやすい靴</li><li>雨具、タオル、虫よけ、常備薬</li><li>着替え・洗面用品・翌日の歩行用の服装</li></ul></article><article class="card cost"><h3>費用の目安（2人合計）</h3><strong>約69,000〜77,000円</strong><p>1人あたり 約34,500〜38,500円</p><ul class="cost-list"><li><span>宿泊・夕朝食付き（確定）</span><span>19,000円</span></li><li><span>レンタカー（確定）</span><span>19,736円</span></li><li><span>鳥羽水族館（大人2人）</span><span>5,600円</span></li><li><span>高速代（普通車・ETC想定）</span><span>11,000〜14,000円</span></li><li><span>ガソリン代</span><span>6,000〜8,000円</span></li><li><span>昼食・軽食・飲み物</span><span>7,000〜9,000円</span></li><li><span>駐車場など</span><span>1,000〜2,000円</span></li></ul><p class="cost-note">宿の夕食・朝食は宿泊代に含む想定。9/22の大阪到着後の夕食は含めていません。</p></article></div></section>
+    <section class="hero" id="top"><img class="hero-media" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Kumano_Kodo_pilgrimage_route_Daimon-zaka_World_heritage_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E5%A4%A7%E9%96%80%E5%9D%8203.JPG" alt="杉並木と石畳が続く熊野古道・大門坂" /><div class="shell hero-inner"><div><p class="kicker">2026.09.21 MON — 09.22 TUE</p><h1>森と海をめぐる<br />1泊2日の旅</h1><p class="hero-lead">伊勢の清らかな朝から、鳥羽の生きものたち、熊野の石畳へ。景色が大きく移り変わる、たくと・かずこの休日。</p><div class="hero-meta"><span>大阪発着</span><span>レンタカー</span><span>1泊2日</span><span>熊野市泊</span></div></div></div></section>
+    <div class="shell journey-bar" aria-label="旅の主な経由地"><div class="journey-grid"><div class="journey-stop"><i class="journey-dot"></i><b>大阪</b><small>START</small></div><div class="journey-stop"><i class="journey-dot"></i><b>伊勢</b><small>DAY 1</small></div><div class="journey-stop"><i class="journey-dot"></i><b>鳥羽</b><small>DAY 1</small></div><div class="journey-stop"><i class="journey-dot"></i><b>熊野市</b><small>STAY</small></div><div class="journey-stop"><i class="journey-dot"></i><b>那智山</b><small>DAY 2</small></div></div></div>
+
+    <section class="section shell" id="schedule">
+      <div class="section-head"><p class="section-label">01 / SCHEDULE</p><h2>旅の行程</h2></div>
+      <div class="prelude"><aside class="pickup"><span>DAY 0 · 9/20</span><strong>旅の前夜</strong><p>19:30 南森町でレンタカー受取</p></aside><div class="route-summary"><strong>伊勢の朝、鳥羽の午後、熊野の夜。</strong><span>走行時間が長いので、出発時刻を優先。</span></div></div>
+      <div class="days">
+        <article class="day-card"><div class="day-top"><p class="day-label">DAY 1　9/21（月・祝）</p><h3>大阪 → 伊勢 → 鳥羽 → 熊野市</h3></div><ol class="timeline"><li><time>5:30</time><span>大阪を出発</span></li><li><time>8:00頃</time><span>伊勢神宮・内宮を参拝</span></li><li><time>9:15</time><span>おはらい町・おかげ横丁を散策</span></li><li><time>10:00〜10:40</time><span>おかげ横丁で早めの昼食</span></li><li><time>11:15〜14:15</time><span class="key">鳥羽水族館を3時間見学</span></li><li><time>14:15</time><span>熊野市へ出発（途中休憩1回）</span></li><li><time>18:00</time><span class="key">紀南荘にチェックイン・夕食</span></li></ol></article>
+        <article class="day-card"><div class="day-top"><p class="day-label">DAY 2　9/22（火・祝）</p><h3>熊野市 → 那智山 → 大阪</h3></div><ol class="timeline"><li><time>8:00</time><span class="key">紀南荘を出発</span></li><li><time>9:00頃</time><span>大門坂駐車場に到着</span></li><li><time>9:15</time><span>熊野古道・大門坂を歩き始める</span></li><li><time>10:00頃</time><span>熊野那智大社・青岸渡寺を参拝</span></li><li><time>11:30頃</time><span>那智の滝を見学</span></li><li><time>12:30頃</time><span>バスまたは徒歩で車へ戻る</span></li><li><time>13:30頃</time><span>大阪へ出発（途中休憩1回）</span></li><li><time>18:30〜19:15</time><span>大阪着・給油後、返却店舗へ</span></li><li><time>19:30</time><span class="key">南森町でレンタカー返却</span></li></ol></article>
+      </div>
+      <div class="schedule-alert"><strong>時間のポイント：</strong>1日目は18:00のチェックインを優先。2日目の路線バス時刻・道路状況・駐車場は出発前日に再確認する。</div>
+    </section>
+
+    <section class="highlights" id="highlights"><div class="shell">
+      <div class="section-head"><p class="section-label">02 / HIGHLIGHTS</p><h2>この旅の見どころ</h2></div><p class="section-note">森、海、石畳。1泊2日の中で空気が大きく変わる3つの章。下のスポットを開くと、当日の楽しみ方とGoogleマップを確認できます。</p>
+      <div class="story-grid">
+        <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%87%E6%B2%BB%E6%A9%8B%20%2851435412437%29.jpg?width=1280" alt="伊勢神宮内宮の宇治橋" loading="lazy" /><div class="story-content"><small>CHAPTER 01 · MORNING</small><h3>森へ入る、伊勢の朝</h3><p>宇治橋を渡り、五十鈴川のそばを歩いて内宮へ。参拝のあとは門前町で伊勢らしい味を。</p><span class="story-time">8:00頃 — 10:40</span></div></article>
+        <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8%20Toba%20Aquarium%20%2854790849678%29.jpg?width=1280" alt="鳥羽水族館" loading="lazy" /><div class="story-content"><small>CHAPTER 02 · AFTERNOON</small><h3>海の生きものに会う午後</h3><p>3時間をたっぷり確保。ショー時刻を先に見て、会いたい生きものから自由にめぐる。</p><span class="story-time">11:15 — 14:15</span></div></article>
+        <article class="story-card"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seigantoji05s1920.jpg?width=1280" alt="那智山青岸渡寺と那智の滝" loading="lazy" /><div class="story-content"><small>CHAPTER 03 · DAY TWO</small><h3>石畳の先、那智山へ</h3><p>大門坂の杉並木を歩き、熊野那智大社・青岸渡寺、那智の滝へ。熊野らしい一日の締めくくり。</p><span class="story-time">9:15 — 12:30頃</span></div></article>
+      </div>
+      <div class="spot-list">
+        <details class="spot"><summary><span class="spot-number">01</span><span class="spot-title"><h3>伊勢神宮・内宮</h3><p>宇治橋、五十鈴川、森の参道</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>朝の澄んだ空気の中、宇治橋から正宮までをゆっくり往復。静かな参拝から旅を始めます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%20%E5%86%85%E5%AE%AE" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">02</span><span class="spot-title"><h3>おかげ横丁</h3><p>伊勢うどん、赤福、門前町歩き</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>昼食は10:00〜10:40。伊勢うどんを軸に、気になる甘味やおみやげも時間を見ながら楽しみます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">03</span><span class="spot-title"><h3>鳥羽水族館</h3><p>ジュゴン、ラッコ、スナドリネコ</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>入館したら最初にショー時刻を確認。見学3時間の中で、会いたい生きものを優先して回ります。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">04</span><span class="spot-title"><h3>熊野古道・大門坂</h3><p>夫婦杉と苔むした石畳</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>大門坂駐車場から、杉並木と石畳の参詣道へ。滑りにくい靴と水分を用意して歩きます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%20%E9%A7%90%E8%BB%8A%E5%A0%B4" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">05</span><span class="spot-title"><h3>熊野那智大社・青岸渡寺</h3><p>朱塗りの社殿と那智山の眺め</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>大門坂を上った先で参拝。青岸渡寺から三重塔と那智の滝が重なる景色も楽しみます。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+        <details class="spot"><summary><span class="spot-number">06</span><span class="spot-title"><h3>那智の滝</h3><p>落差133m、熊野の御神体</p></span><span class="spot-toggle">＋</span></summary><div class="spot-detail"><p>飛瀧神社の御神体でもある大瀑布。滝の近くまで進み、旅の余韻を残して車へ戻ります。</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D" target="_blank" rel="noopener">Googleマップを開く ↗</a></div></details>
+      </div>
+    </div></section>
+
+    <section class="section map-section" id="route"><div class="shell"><div class="section-head"><p class="section-label">03 / ROUTE MAP</p><h2>移動をひと目で</h2></div><p class="section-note">1日目は東へ、2日目は熊野から那智山を経て大阪へ。地図上のピンを押すと地点名を確認できます。</p><div class="map-layout"><div class="map-frame" id="trip-map" aria-label="大阪・伊勢・鳥羽・熊野・那智山の概略ルート地図"></div><aside class="map-side"><div class="route-day"><small>DAY 1 · CORAL LINE</small><h3>大阪 → 伊勢 → 鳥羽 → 熊野市</h3><p>朝の参拝と水族館を楽しみ、夕食に間に合うよう熊野市へ。</p></div><div class="route-day"><small>DAY 2 · GREEN LINE</small><h3>熊野市 → 那智山 → 大阪</h3><p>大門坂から那智の滝をめぐり、車を回収して大阪へ戻ります。</p></div><div class="map-tip">※ 地図の線は全体像をつかむための概略です。当日の走行経路はカーナビで確認してください。</div></aside></div></div></section>
+
+    <section class="stay shell" id="stay"><div class="section-head"><p class="section-label">04 / STAY</p><h2>熊野の夜</h2></div><article class="stay-card"><div class="stay-visual"><span class="stay-eyebrow">STAY · NIGHT 01</span><h2>紀南荘</h2><p>熊野市で、旅の前半をほどく。</p></div><div class="stay-body"><h3>夕食と朝食付きの和室</h3><p>長距離移動を終えたら、家庭的な料理と畳の部屋でひと休み。翌朝の大門坂歩きに備えます。</p><div class="stay-facts"><div><small>CHECK IN</small><b>9/21 18:00</b></div><div><small>CHECK OUT</small><b>9/22 朝</b></div><div><small>ROOM</small><b>禁煙和室10畳</b></div><div><small>PAYMENT</small><b>現地払い・現金</b></div></div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E7%B4%80%E5%8D%97%E8%8D%98%20%E4%B8%89%E9%87%8D%E7%9C%8C%E7%86%8A%E9%87%8E%E5%B8%82" target="_blank" rel="noopener">紀南荘をGoogleマップで見る ↗</a></div></article></section>
+
+    <section class="section shell" id="prepare"><div class="section-head"><p class="section-label">05 / PREPARE</p><h2>準備と費用</h2></div><div class="prepare-grid"><article class="packing-card"><p class="card-label">PACKING LIST</p><h3>忘れずに持っていくもの</h3><ul class="checklist"><li>運転免許証（運転する人全員）</li><li>宿泊代の現金</li><li>スマートフォン・充電器</li><li>モバイルバッテリー</li><li>滑りにくい歩きやすい靴</li><li>雨具・タオル</li><li>虫よけ・常備薬</li><li>着替え・洗面用品</li></ul></article><article class="cost-card"><p class="card-label">BUDGET · FOR TWO</p><h3>費用の目安</h3><strong class="cost-total">約69,000〜77,000円</strong><p class="cost-per">1人あたり 約34,500〜38,500円</p><ul class="cost-list"><li><span>宿泊・夕朝食付き（確定）</span><b>19,000円</b></li><li><span>レンタカー（確定）</span><b>19,736円</b></li><li><span>鳥羽水族館</span><b>5,600円</b></li><li><span>高速代</span><b>11,000〜14,000円</b></li><li><span>ガソリン代</span><b>6,000〜8,000円</b></li><li><span>昼食・軽食・飲み物</span><b>7,000〜9,000円</b></li><li><span>駐車場など</span><b>1,000〜2,000円</b></li></ul><p class="cost-note">宿の夕食・朝食を含む想定。9/22の大阪到着後の夕食は含みません。</p></article></div></section>
   </main>
-  <footer>安全運転で、いい旅にしよう。</footer>
+  <footer><p>安全運転で、いい旅にしよう。</p><small>伊勢・鳥羽・熊野古道　2026</small></footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    const map = L.map('trip-map', { scrollWheelZoom: false }).setView([34.05, 136.05], 8);
+    const map = L.map('trip-map', { scrollWheelZoom: false, zoomControl: true });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
-    const dayOne = [
-      { name: '大阪', coords: [34.6937, 135.5023] },
-      { name: '伊勢神宮・内宮', coords: [34.4554, 136.7255] },
-      { name: '鳥羽水族館', coords: [34.4815, 136.8458] },
-      { name: '紀南荘（熊野市）', coords: [33.8896, 136.0998] }
-    ];
-    const dayTwo = [
-      { name: '大門坂', coords: [33.6682, 135.9034] },
-      { name: '熊野那智大社・青岸渡寺', coords: [33.6691, 135.8882] },
-      { name: '那智の滝', coords: [33.6784, 135.8891] },
-      { name: '大阪', coords: [34.6937, 135.5023] }
-    ];
-    L.polyline(dayOne.map(place => place.coords), { color: '#e95c3d', weight: 4, opacity: .85 }).addTo(map);
-    L.polyline([dayOne[3].coords, ...dayTwo.map(place => place.coords)], { color: '#416552', weight: 4, opacity: .85, dashArray: '10 8' }).addTo(map);
-    [...dayOne, ...dayTwo.slice(0, -1)].forEach((place, index) => L.circleMarker(place.coords, { radius: 8, color: '#fff', weight: 2, fillColor: index < 4 ? '#e95c3d' : '#416552', fillOpacity: 1 }).addTo(map).bindPopup('<strong>' + place.name + '</strong>'));
-    map.fitBounds(L.latLngBounds([...dayOne, ...dayTwo].map(place => place.coords)).pad(.13));
+    const dayOne = [{ name: '大阪', coords: [34.6937, 135.5023] }, { name: '伊勢神宮・内宮', coords: [34.4554, 136.7255] }, { name: '鳥羽水族館', coords: [34.4815, 136.8458] }, { name: '紀南荘（熊野市）', coords: [33.8896, 136.0998] }];
+    const dayTwo = [{ name: '大門坂', coords: [33.6682, 135.9034] }, { name: '熊野那智大社・青岸渡寺', coords: [33.6691, 135.8882] }, { name: '那智の滝', coords: [33.6784, 135.8891] }, { name: '大阪', coords: [34.6937, 135.5023] }];
+    L.polyline(dayOne.map(place => place.coords), { color: '#e86143', weight: 5, opacity: .88 }).addTo(map);
+    L.polyline([dayOne[3].coords, ...dayTwo.map(place => place.coords)], { color: '#27594d', weight: 5, opacity: .88, dashArray: '10 8' }).addTo(map);
+    [...dayOne, ...dayTwo.slice(0, -1)].forEach((place, index) => L.circleMarker(place.coords, { radius: 9, color: '#fff', weight: 3, fillColor: index < 4 ? '#e86143' : '#27594d', fillOpacity: 1 }).addTo(map).bindPopup('<strong>' + place.name + '</strong>'));
+    map.fitBounds(L.latLngBounds([...dayOne, ...dayTwo].map(place => place.coords)).pad(.14));
   </script>
 </body>
 </html>
