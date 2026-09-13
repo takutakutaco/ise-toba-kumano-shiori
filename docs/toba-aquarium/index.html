@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="2026年9月21日、11:15〜14:15の鳥羽水族館を楽しみ尽くす3時間完全ガイド" />
+  <meta name="theme-color" content="#073c49" />
+  <title>鳥羽水族館 完全ガイド｜伊勢・鳥羽・熊野古道の旅</title>
+  <style>
+    :root {
+      --deep: #073c49;
+      --deep-2: #052c35;
+      --sea: #0d6975;
+      --aqua: #78d7d6;
+      --foam: #ecf6f2;
+      --paper: #fffdf8;
+      --coral: #e86447;
+      --gold: #f2c77f;
+      --ink: #16343a;
+      --muted: #61777b;
+      --line: rgba(22,52,58,.14);
+      --shadow: 0 18px 52px rgba(5,44,53,.13);
+      --radius: 22px;
+      --shell: min(1080px, calc(100% - 48px));
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; overflow-x: clip; }
+    body { margin: 0; overflow-x: clip; background: var(--foam); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; font-size: 16px; line-height: 1.75; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .shell { width: var(--shell); margin-inline: auto; }
+    .skip { position: absolute; left: 12px; top: -80px; z-index: 2000; padding: 9px 12px; background: #fff; color: var(--deep); }
+    .skip:focus { top: 10px; }
+    .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(236,246,242,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(15px); }
+    .header-inner { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .back { text-decoration: none; font-size: .83rem; font-weight: 800; color: var(--sea); }
+    .brand { text-align: right; line-height: 1.15; }
+    .brand small { display: block; color: var(--coral); font-size: .62rem; font-weight: 900; letter-spacing: .16em; }
+    .brand strong { font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.02rem; font-weight: 500; }
+
+    .hero { position: relative; min-height: 570px; overflow: hidden; background: var(--deep-2); color: #fff; isolation: isolate; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("https://commons.wikimedia.org/wiki/Special:FilePath/%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8%20Toba%20Aquarium%20%2854790849678%29.jpg?width=1600") center 48% / cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3,31,38,.94), rgba(3,31,38,.76) 48%, rgba(3,31,38,.29)); }
+    .hero-inner { min-height: 570px; display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 54px; align-items: center; padding-block: 62px; }
+    .eyebrow { margin: 0 0 13px; color: #afe9e8; font-size: .72rem; font-weight: 900; letter-spacing: .17em; }
+    h1 { margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(3rem, 6vw, 5.8rem); font-weight: 500; line-height: 1.04; letter-spacing: -.025em; text-shadow: 0 4px 26px rgba(0,0,0,.25); }
+    .hero-lead { max-width: 620px; margin: 22px 0 0; color: rgba(255,255,255,.87); font-size: 1.04rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+    .hero-tags span { padding: 7px 12px; border: 1px solid rgba(255,255,255,.32); border-radius: 999px; background: rgba(3,31,38,.25); font-size: .76rem; font-weight: 800; }
+    .clock { padding: 27px; border: 1px solid rgba(255,255,255,.28); border-radius: var(--radius); background: rgba(3,31,38,.48); backdrop-filter: blur(13px); }
+    .clock small { display: block; color: #afe9e8; font-size: .66rem; font-weight: 900; letter-spacing: .15em; }
+    .clock strong { display: block; margin: 5px 0 2px; font-family: Georgia, serif; font-size: 2rem; font-weight: 500; line-height: 1.2; }
+    .clock p { margin: 0; color: rgba(255,255,255,.76); font-size: .8rem; }
+
+    .quickbar { position: relative; z-index: 2; margin-top: -34px; }
+    .quickgrid { display: grid; grid-template-columns: repeat(4,1fr); overflow: hidden; border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow); }
+    .quick { min-width: 0; padding: 22px; border-right: 1px solid var(--line); }
+    .quick:last-child { border: 0; }
+    .quick small { display: block; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .11em; }
+    .quick b { display: block; margin-top: 3px; font-size: .94rem; }
+
+    .jump { display: flex; gap: 9px; margin-block: 34px 0; overflow-x: auto; scrollbar-width: none; }
+    .jump::-webkit-scrollbar { display: none; }
+    .jump a { flex: 0 0 auto; padding: 8px 13px; border: 1px solid rgba(13,105,117,.22); border-radius: 999px; background: rgba(255,255,255,.55); color: var(--sea); font-size: .76rem; font-weight: 800; text-decoration: none; }
+    .section { padding-block: 90px; }
+    .section.alt { background: var(--paper); }
+    .section-head { display: grid; grid-template-columns: 124px 1fr; gap: 28px; align-items: end; margin-bottom: 34px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .section-no { margin: 0; color: var(--coral); font-size: .7rem; font-weight: 900; letter-spacing: .15em; }
+    h2 { margin: 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: clamp(2rem, 4vw, 3.35rem); font-weight: 500; line-height: 1.18; }
+    h3 { line-height: 1.4; }
+    .lead { max-width: 760px; margin: -12px 0 32px 152px; color: var(--muted); }
+    .notice { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; margin-bottom: 24px; padding: 18px 20px; border-radius: 16px; background: #fff0e7; border: 1px solid rgba(232,100,71,.18); }
+    .notice-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--coral); color: #fff; font-weight: 900; }
+    .notice p { margin: 0; font-size: .88rem; }
+    .notice b { color: #aa3b27; }
+
+    .route { position: relative; display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .route::before { content: ""; position: absolute; left: 69px; top: 40px; bottom: 40px; width: 2px; background: linear-gradient(var(--aqua), var(--coral)); }
+    .route li { position: relative; display: grid; grid-template-columns: 140px 1fr; gap: 25px; padding: 15px 0; }
+    .route time { position: relative; z-index: 1; justify-self: start; min-width: 140px; padding: 10px 12px; border: 5px solid var(--foam); border-radius: 999px; background: var(--deep); color: #fff; font-size: .8rem; font-weight: 900; text-align: center; font-variant-numeric: tabular-nums; }
+    .route-card { padding: 22px 24px; border: 1px solid var(--line); border-radius: 17px; background: var(--paper); }
+    .route-card.feature { border-color: rgba(232,100,71,.34); box-shadow: 0 12px 30px rgba(232,100,71,.1); }
+    .route-card small { color: var(--coral); font-size: .67rem; font-weight: 900; letter-spacing: .11em; }
+    .route-card h3 { margin: 3px 0 7px; font-size: 1.13rem; }
+    .route-card p { margin: 0; color: var(--muted); font-size: .87rem; }
+    .route-card .tip { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--ink); }
+
+    .animal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .animal { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .animal-top { min-height: 138px; display: grid; align-content: end; padding: 22px; background: linear-gradient(145deg, var(--deep), var(--sea)); color: #fff; }
+    .animal:nth-child(2) .animal-top { background: linear-gradient(145deg, #1e5471, #0e7180); }
+    .animal:nth-child(3) .animal-top { background: linear-gradient(145deg, #7b4434, #d0694d); }
+    .animal:nth-child(4) .animal-top { background: linear-gradient(145deg, #37574c, #45806c); }
+    .animal:nth-child(5) .animal-top { background: linear-gradient(145deg, #36405e, #526e91); }
+    .animal:nth-child(6) .animal-top { background: linear-gradient(145deg, #5b4b2a, #a68243); }
+    .animal-top small { color: rgba(255,255,255,.72); font-size: .65rem; font-weight: 900; letter-spacing: .12em; }
+    .animal-top h3 { margin: 4px 0 0; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.42rem; font-weight: 500; }
+    .animal-body { padding: 21px; }
+    .animal-body p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .watch { margin: 14px 0 0; padding: 0; list-style: none; }
+    .watch li { padding: 7px 0 0 19px; position: relative; font-size: .8rem; }
+    .watch li::before { content: "↳"; position: absolute; left: 0; color: var(--coral); font-weight: 900; }
+
+    .zone-map { display: grid; grid-template-columns: repeat(6,1fr); gap: 9px; }
+    .zone { min-height: 105px; padding: 14px; border-radius: 14px; background: #e2f0ed; }
+    .zone.priority { background: var(--deep); color: #fff; }
+    .zone.event { background: #f9dfd3; }
+    .zone b { display: block; color: var(--coral); font-family: Georgia, serif; font-size: 1.15rem; }
+    .zone.priority b { color: var(--gold); }
+    .zone span { display: block; margin-top: 4px; font-size: .71rem; line-height: 1.45; }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; color: var(--muted); font-size: .75rem; }
+    .legend i { display: inline-block; width: 11px; height: 11px; margin-right: 5px; border-radius: 3px; background: var(--deep); }
+    .legend span:nth-child(2) i { background: #f9dfd3; }
+
+    .choice-grid, .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .choice, .practical { padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .choice h3, .practical h3 { margin: 0 0 9px; font-size: 1.08rem; }
+    .choice p, .practical p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .choice strong { color: var(--coral); }
+    .practical ul { margin: 12px 0 0; padding-left: 1.2em; color: var(--muted); font-size: .84rem; }
+
+    .links { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .link { display: grid; min-height: 104px; align-content: center; padding: 18px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .link:hover, .link:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .link small { color: var(--coral); font-size: .64rem; font-weight: 900; letter-spacing: .11em; }
+    .link b { margin-top: 3px; font-size: .88rem; }
+    .final-card { margin-top: 18px; padding: 28px; border-radius: var(--radius); background: var(--deep); color: #fff; }
+    .final-card h3 { margin: 0 0 14px; font-family: Georgia, "Hiragino Mincho ProN", serif; font-size: 1.5rem; font-weight: 500; }
+    .check { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px 18px; margin: 0; padding: 0; list-style: none; }
+    .check li { padding-left: 22px; position: relative; color: rgba(255,255,255,.82); font-size: .82rem; }
+    .check li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+    footer { padding: 54px 24px; background: var(--deep-2); color: #fff; text-align: center; }
+    footer a { display: inline-block; padding: 10px 16px; border: 1px solid rgba(255,255,255,.32); border-radius: 999px; text-decoration: none; font-size: .8rem; font-weight: 800; }
+    footer p { margin: 16px 0 0; color: rgba(255,255,255,.58); font-size: .72rem; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .clock { max-width: 430px; }
+      .quickgrid { grid-template-columns: 1fr 1fr; }
+      .quick:nth-child(2) { border-right: 0; }
+      .quick:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .animal-grid { grid-template-columns: 1fr 1fr; }
+      .zone-map { grid-template-columns: repeat(4,1fr); }
+    }
+    @media (max-width: 680px) {
+      :root { --shell: calc(100% - 28px); --radius: 18px; }
+      html { scroll-padding-top: 68px; }
+      .header-inner { min-height: 64px; }
+      .brand strong { font-size: .88rem; }
+      .hero, .hero-inner { min-height: 600px; }
+      .hero::after { background: linear-gradient(0deg, rgba(3,31,38,.96), rgba(3,31,38,.67) 70%, rgba(3,31,38,.28)); }
+      .hero-inner { align-content: end; gap: 24px; padding-block: 52px 70px; }
+      h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
+      .hero-lead { font-size: .92rem; }
+      .clock { padding: 19px; }
+      .clock strong { font-size: 1.65rem; }
+      .quickbar { margin-top: -24px; }
+      .quick { padding: 16px; }
+      .section { padding-block: 72px; }
+      .section-head { grid-template-columns: 1fr; gap: 5px; margin-bottom: 26px; }
+      .lead { margin: -10px 0 25px; font-size: .88rem; }
+      .route::before { left: 8px; }
+      .route li { grid-template-columns: 1fr; gap: 8px; padding-left: 26px; }
+      .route time { min-width: 0; border-width: 4px; justify-self: start; }
+      .route-card { padding: 19px; }
+      .animal-grid, .choice-grid, .practical-grid { grid-template-columns: 1fr; }
+      .zone-map { grid-template-columns: 1fr 1fr; }
+      .links { grid-template-columns: 1fr 1fr; }
+      .check { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 410px) {
+      .quickgrid, .links { grid-template-columns: 1fr; }
+      .quick { border-right: 0; border-bottom: 1px solid var(--line); }
+      .quick:last-child { border-bottom: 0; }
+      .zone { min-height: 94px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="shell header-inner"><a class="back" href="../">← 旅のしおりへ戻る</a><div class="brand"><small>SPECIAL GUIDE</small><strong>鳥羽水族館</strong></div></div></header>
+  <main id="main">
+    <section class="hero"><div class="shell hero-inner"><div><p class="eyebrow">SEPTEMBER 21, 2026 · DAY 1</p><h1>鳥羽水族館<br />完全ガイド</h1><p class="hero-lead">全部を均等に見るより、会いたい生きものとイベントをつなぐ。たくと・かずこの3時間を、慌てず濃く楽しむための当日用ガイドです。</p><div class="hero-tags"><span>ジュゴン</span><span>ラッコ</span><span>ペンギン</span><span>セイウチ</span><span>企画展</span></div></div><aside class="clock"><small>TODAY'S WINDOW</small><strong>11:15 — 14:15</strong><p>14:15には熊野市へ出発。退館時刻から逆算して楽しみます。</p></aside></div></section>
+
+    <div class="shell quickbar"><div class="quickgrid"><div class="quick"><small>OPEN</small><b>9:00〜17:30</b></div><div class="quick"><small>ADMISSION</small><b>大人 2,800円</b></div><div class="quick"><small>PARKING</small><b>1日 1,000円</b></div><div class="quick"><small>STYLE</small><b>12ゾーン・順路なし</b></div></div></div>
+    <nav class="shell jump" aria-label="ガイド内メニュー"><a href="#route">3時間ルート</a><a href="#animals">主役たち</a><a href="#zones">館内攻略</a><a href="#choices">混雑時の分岐</a><a href="#practical">実用情報</a><a href="#official">公式リンク</a></nav>
+
+    <section class="section shell" id="route"><div class="section-head"><p class="section-no">01 / ROUTE</p><h2>迷わない3時間ルート</h2></div><p class="lead">LゾーンのイベントとIゾーンのラッコを時刻の柱にします。入館時にラッコ列の長さを見て、12:20〜12:45の枠だけ柔軟に前後させるのがコツです。</p>
+      <div class="notice"><span class="notice-mark">!</span><p><b>9/21はシルバーウィーク混雑期間。</b> チケットを持っていても入館待ちが生じる場合があります。駐車後は寄り道せず入口へ。入館できた時刻が遅れたら、下の「混雑時の分岐」を使います。</p></div>
+      <ol class="route">
+        <li><time>11:15–11:25</time><div class="route-card"><small>START · ENTRANCE</small><h3>入館したら、まず3つ確認</h3><p>館内マップを取り、ショー変更の掲示を確認。ラッコ観覧列の状況もスタッフ案内で把握します。</p><p class="tip"><b>ふたりで共有：</b>「13時ラッコを守る／14時セイウチ後すぐ出る」を最初に合わせる。</p></div></li>
+        <li><time>11:25–11:50</time><div class="route-card feature"><small>H · 人魚の海</small><h3>ジュゴン「セレナ」をじっくり</h3><p>日本で唯一のジュゴン展示。速さを追う場所ではなく、海草を食べる口元、胸びれ、静かな浮上呼吸を待つ場所です。</p><p class="tip"><b>楽しみ方：</b>最初の数分は撮影せず、泳ぐリズムをつかんでからお気に入りの瞬間を狙う。</p></div></li>
+        <li><time>11:50–12:15</time><div class="route-card feature"><small>L · 水の回廊</small><h3>12:00 ペンギン散歩</h3><p>約10分。目の前を歩く姿を楽しみます。終了後も同じLゾーンにいるため、セイウチや水辺の動物を軽く予習できます。</p><p class="tip"><b>立ち位置：</b>通路をふさがず、係員の案内優先。目線を低くすると歩き方がよく見える。</p></div></li>
+        <li><time>12:15–12:45</time><div class="route-card"><small>K / C · DISCOVERY</small><h3>へんな生きもの＋古代の海</h3><p>K「へんな生きもの研究所」で形と生態の驚きを拾い、C「古代の海」で“生きている化石”へ。企画展の古代生物テーマともつながります。</p><p class="tip"><b>調整枠：</b>ラッコ列が長ければ、この30分を列へ回す。空いていれば企画展示室も追加。</p></div></li>
+        <li><time>12:45–13:25</time><div class="route-card feature"><small>I · 極地の海</small><h3>13:00 ラッコのお食事タイム</h3><p>13時は「貝のみ」の回。観覧は列に並び、水槽前では約10人ずつ・1分交代です。メイとキラの表情、前足の使い方、食べ方の違いに注目。</p><p class="tip"><b>大事：</b>ふたり揃って並ぶ。列の途中合流・場所取りは不可。撮影はフラッシュを切り、まず自分の目で見る。</p></div></li>
+        <li><time>13:25–13:50</time><div class="route-card"><small>E / D · LOCAL SEA</small><h3>伊勢志摩の海からサンゴ礁へ</h3><p>Eで旅をしている伊勢志摩の海を水中側から眺め、Dの明るいサンゴ礁へ。午前の伊勢観光と午後の水族館が一本につながる区間です。</p><p class="tip"><b>時間が押したら：</b>Eを優先し、Dは通り抜け中心でLゾーンへ戻る。</p></div></li>
+        <li><time>13:50–14:15</time><div class="route-card feature"><small>L → EXIT · FINALE</small><h3>セイウチは冒頭だけ → 14:15出発</h3><p>14:00のふれあいタイムは約20分。定刻出発を守る今回は、始まりを5分ほど見るか、見送って余裕をもって出口へ向かいます。</p><p class="tip"><b>退館判断：</b>13:55時点でLゾーンにいなければ見送る。14:05に出口へ動き、14:15には駐車場を出る。</p></div></li>
+      </ol>
+    </section>
+
+    <section class="section alt" id="animals"><div class="shell"><div class="section-head"><p class="section-no">02 / STARS</p><h2>会いたい主役たち</h2></div><p class="lead">「いた！」で終わらず、動きや体のつくりをひとつ観察すると記憶に残ります。</p>
+      <div class="animal-grid">
+        <article class="animal"><div class="animal-top"><small>H · 人魚の海</small><h3>ジュゴン</h3></div><div class="animal-body"><p>人魚伝説のモデルともいわれる海生哺乳類。鳥羽水族館は国内唯一の展示です。</p><ul class="watch"><li>海草を口で集める食べ方</li><li>浮上して呼吸する間隔</li><li>胸びれと尾びれの動き</li></ul></div></article>
+        <article class="animal"><div class="animal-top"><small>I · 極地の海</small><h3>ラッコ</h3></div><div class="animal-body"><p>メイとキラの2頭。1分の観覧だからこそ、見るテーマをひとつ決めておきます。</p><ul class="watch"><li>貝を持つ前足の器用さ</li><li>毛づくろいで保温する姿</li><li>顔・ひげ・毛色の違い</li></ul></div></article>
+        <article class="animal"><div class="animal-top"><small>L · 水の回廊</small><h3>セイウチ</h3></div><div class="animal-body"><p>巨体の迫力と、飼育係とのやりとりの細やかさのギャップが魅力です。</p><ul class="watch"><li>ひげで周囲を探る様子</li><li>大きな体を支える前肢</li><li>解説で知る個体の性格</li></ul></div></article>
+        <article class="animal"><div class="animal-top"><small>L · 水の回廊</small><h3>ペンギン</h3></div><div class="animal-body"><p>水中の速さとは対照的な陸上の歩き方を至近距離で見られます。</p><ul class="watch"><li>一羽ずつ違う歩幅</li><li>列から寄り道する個体</li><li>翼を使ったバランス</li></ul></div></article>
+        <article class="animal"><div class="animal-top"><small>E · 伊勢志摩の海</small><h3>スナメリ</h3></div><div class="animal-body"><p>伊勢湾にも暮らす小型の鯨類。水面と水中を行き来する滑らかな軌道を追います。</p><ul class="watch"><li>背びれがない丸い背中</li><li>短い呼吸の瞬間</li><li>水槽内での旋回コース</li></ul></div></article>
+        <article class="animal"><div class="animal-top"><small>K · へんな生きもの研究所</small><h3>変わり者たち</h3></div><div class="animal-body"><p>奇妙な形は、生きる場所への適応の結果。「なぜこの形？」をふたりで考える展示です。</p><ul class="watch"><li>名前より先に形を観察</li><li>解説板で答え合わせ</li><li>いちばん不思議な一匹を選ぶ</li></ul></div></article>
+      </div>
+    </div></section>
+
+    <section class="section shell" id="zones"><div class="section-head"><p class="section-no">03 / ZONES</p><h2>12ゾーンをつかむ</h2></div><p class="lead">鳥羽水族館には決まった順路がありません。今回の優先ゾーンは濃色、時間固定イベントはコーラル色。全制覇より、H・I・Lを確実につなぎます。</p>
+      <div class="zone-map" aria-label="鳥羽水族館AからLまでの12ゾーン">
+        <div class="zone event"><b>A</b><span>パフォーマンス<br />スタジアム</span></div><div class="zone"><b>B</b><span>海獣の王国</span></div><div class="zone"><b>C</b><span>古代の海</span></div><div class="zone"><b>D</b><span>コーラルリーフ・<br />ダイビング</span></div><div class="zone"><b>E</b><span>伊勢志摩の海・<br />日本の海</span></div><div class="zone"><b>F</b><span>ジャングル<br />ワールド</span></div>
+        <div class="zone"><b>G</b><span>奇跡の森</span></div><div class="zone priority"><b>H</b><span>人魚の海<br />ジュゴン</span></div><div class="zone priority"><b>I</b><span>極地の海<br />ラッコ</span></div><div class="zone"><b>J</b><span>日本の川</span></div><div class="zone"><b>K</b><span>へんな生きもの<br />研究所</span></div><div class="zone event"><b>L</b><span>水の回廊<br />ペンギン・セイウチ</span></div>
+      </div><div class="legend"><span><i></i>今回の最優先</span><span><i></i>時刻固定イベント</span><span>白：余裕に応じて楽しむ</span></div>
+    </section>
+
+    <section class="section alt" id="choices"><div class="shell"><div class="section-head"><p class="section-no">04 / CHOICES</p><h2>混雑したときの分岐</h2></div><p class="lead">3時間は十分に楽しめますが、祝日は「全部見る」より「何を守るか」の判断が大切です。</p><div class="choice-grid">
+      <article class="choice"><h3>ラッコ列が<strong>30分以内</strong></h3><p>基本ルートどおり。12:45頃から列へ入り、13:00のお食事タイムを狙います。見終えたらE・Dへ。</p></article>
+      <article class="choice"><h3>ラッコ列が<strong>長い</strong></h3><p>12:15からK・Cへ行かず、そのままIゾーンへ。ラッコを最優先し、E・Dは残り時間で調整します。</p></article>
+      <article class="choice"><h3>入館が<strong>11:35以降</strong></h3><p>Hジュゴンを15分に短縮し、11:50にはLへ。K・Cを省き、ペンギン→ラッコ→セイウチを守ります。</p></article>
+      <article class="choice"><h3>セイウチを<strong>最後まで見る</strong></h3><p>14:20頃に終了し、駐車場出発は14:25頃。熊野市到着も10分ほど後ろ倒しになる前提で、ふたりで選びます。</p></article>
+    </div></div></section>
+
+    <section class="section shell" id="practical"><div class="section-head"><p class="section-no">05 / PRACTICAL</p><h2>当日に効く実用情報</h2></div><div class="practical-grid">
+      <article class="practical"><h3>車・駐車場</h3><p>9/19〜23は混雑予告期間。第1駐車場は9:00〜17:45、第2立体駐車場は5:00〜17:45。満車時は近隣駐車場へ案内される可能性があります。</p><ul><li>普通車はA・Bが1日1,000円、Cは500円</li><li>9/20〜22は市民の森臨時駐車場予定（荒天中止あり）</li><li>11:15は「駐車」ではなく「入館」の目標時刻</li></ul></article>
+      <article class="practical"><h3>チケット・入館</h3><p>大人1人2,800円、ふたりで5,600円。WEBチケットは窓口購入を短縮できますが、混雑時の入館待ちはチケットの有無にかかわらず先着順です。</p><ul><li>9/21は9:00〜17:30、最終入館16:30</li><li>当日に限り、出口で透明スタンプを受ければ再入館可</li><li>館内2Fに有料コインロッカーあり</li></ul></article>
+      <article class="practical"><h3>食事・休憩</h3><p>今回はおかげ横丁で早めの昼食を済ませるため、館内レストランは休憩用の予備。景色ならベイサイド、動物モチーフなら花さんごです。</p><ul><li>通常は10:00〜16:30（変更の場合あり）</li><li>時間が押したら飲み物だけにして展示を優先</li><li>14:15出発後の車内用飲料も入館前に準備</li></ul></article>
+      <article class="practical"><h3>撮影・持ち物</h3><p>暗い水槽ではフラッシュを切り、スマホをガラスに近づけると反射を減らせます。動画は短く、見る時間も残します。</p><ul><li>スマホ・モバイルバッテリー</li><li>両手が空く小さなバッグ</li><li>薄手の羽織り、飲み物、ハンカチ</li><li>ラッコ観覧では大声・フラッシュ禁止</li></ul></article>
+      <article class="practical"><h3>お土産</h3><p>中央出入口近くのメインショップと、オリジナルグッズのあるプラザショップがあります。今回は退館がシビアなので先に狙いを決めます。</p><ul><li>13:35時点で遅れていなければ10分確保</li><li>ラッコ・ジュゴンの小物を第一候補に</li><li>14:10になったら会計途中でも出発判断</li></ul></article>
+      <article class="practical"><h3>ふたりで楽しむミッション</h3><p>情報を詰め込むだけでなく、ふたりの発見を持ち帰る小さな遊びです。</p><ul><li>いちばん癒やされた動物を一匹ずつ選ぶ</li><li>へんな生きものNo.1を決める</li><li>帰りの車でベスト3を発表する</li></ul></article>
+    </div></section>
+
+    <section class="section alt" id="official"><div class="shell"><div class="section-head"><p class="section-no">06 / LINKS</p><h2>当日の公式情報</h2></div><p class="lead">イベントや展示は動物の体調・天候・混雑で変わります。出発前と入館直後に、公式情報を最終確認してください。</p><div class="links">
+      <a class="link" href="https://aquarium.co.jp/topics/260913_01" target="_blank" rel="noopener"><small>MUST CHECK</small><b>9/19〜23 混雑案内 ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/show/" target="_blank" rel="noopener"><small>TODAY</small><b>ショー・お食事時刻 ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/topics/250201_01" target="_blank" rel="noopener"><small>SEA OTTER</small><b>ラッコの観覧方法 ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/kannai/" target="_blank" rel="noopener"><small>FLOOR</small><b>館内案内・12ゾーン ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/event/" target="_blank" rel="noopener"><small>EVENT</small><b>企画展・イベント ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/eigyo/" target="_blank" rel="noopener"><small>OPEN / ACCESS</small><b>営業時間・アクセス ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/ryoukin/" target="_blank" rel="noopener"><small>TICKET</small><b>料金・WEBチケット ↗</b></a>
+      <a class="link" href="https://aquarium.co.jp/eigyo/kuruma/" target="_blank" rel="noopener"><small>PARKING</small><b>駐車場案内 ↗</b></a>
+      <a class="link" href="https://www.google.com/maps/dir/?api=1&destination=%E9%B3%A5%E7%BE%BD%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener"><small>GOOGLE MAPS</small><b>ナビを開く ↗</b></a>
+    </div><div class="final-card"><h3>入館前、30秒チェック</h3><ul class="check"><li>14:15出発をふたりで確認</li><li>スマホのフラッシュOFF</li><li>公式の当日イベント時刻を見る</li><li>ラッコ列の案内を確認</li><li>12:00はLゾーンへ</li><li>車内用の飲み物を準備</li></ul></div></div></section>
+  </main>
+  <footer><a href="../">← 伊勢・鳥羽・熊野古道の旅のしおり</a><p>情報確認：2026年9月13日｜動物の体調・天候・混雑により変更される場合があります。</p></footer>
+</body>
+</html>
